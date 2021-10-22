@@ -99,7 +99,7 @@ Exemplo de arquivo de configuração (td-agent.conf)
 </match>
 ```
 
-Etapas do processamento no Fluentd:
+#### Etapas do processamento no Fluentd:
 
 1. O plugin windows_eventlog2 capta os logs de acordo com o especificado, e insere uma tag
 
@@ -186,7 +186,7 @@ Exemplo de arquivo de configuração (td-agent.conf)
 </match>
 ```
 
-Etapas do processamento no Fluentd:
+#### Etapas do processamento no Fluentd:
 
 
 1. A origem dos arquivos é configurada e uma tag de auditlog é inserida nos eventos:
