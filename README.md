@@ -75,9 +75,9 @@ Exemplo de arquivo de configuração (td-agent.conf)
     @type s3
         use_server_side_encryption "aws:kms"
         time_slice_format %Y%m%d
-        path ec2/windows/itau-aws-sor-saeast1
-        s3_bucket sor-data-oyndzp
-        s3_region sa-east-1
+        path ec2/windows/aws-sor-saeast1
+        s3_bucket [RAW_DATA_BUCKET_NAME]
+        s3_region [RAW_DATA_BUCKET_REGION]
         s3_object_key_format "%{path}-${tag[1]}/${tag[0]}/${tag[3]}/${tag[5]}/${tag[3]}_%{time_slice}_%{index}.%{file_extension}" 
         <format>
             @type json
@@ -138,7 +138,7 @@ Exemplo de arquivo de configuração (td-agent.conf)
 ```
 <source>
   @type tail
-  path /etc/audit/auditd.conf,/etc/audit/rules.d/itau-cybersecurity.rules,/etc/audisp/plugins.d/syslog.conf,/etc/rsyslog.conf,/etc/awslogs/awslogs.conf,/var/log/security,/var/log/audit/audit.log
+  path /etc/audit/auditd.conf,/etc/audisp/plugins.d/syslog.conf,/etc/rsyslog.conf,/etc/awslogs/awslogs.conf,/var/log/security,/var/log/audit/audit.log
   pos_file /var/log/td-agent/auditlog.pos
   read_from_head true
   follow_inodes true
@@ -166,9 +166,9 @@ Exemplo de arquivo de configuração (td-agent.conf)
     @type s3
         use_server_side_encryption "aws:kms"
         time_slice_format %Y%m%d
-        path ec2/linux/itau-aws-sor-saeast1
-        s3_bucket sor-data-oyndzp
-        s3_region sa-east-1
+        path ec2/linux/aws-sor-saeast1
+        s3_bucket [RAW_DATA_BUCKET_NAME]
+        s3_region [RAW_DATA_BUCKET_REGION]
         s3_object_key_format "%{path}-${tag[1]}/${tag[0]}/${tag[2]}/#{%x`printf '%(year=%Y/month=%m/day=%d)T' -1`}/${tag[2]}_%{time_slice}_%{index}.%{file_extension}"
     <format>
         @type json
