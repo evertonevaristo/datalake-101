@@ -191,8 +191,7 @@ Exemplo de arquivo de configuração (td-agent.conf)
 
 1. A origem dos arquivos é configurada e uma tag de auditlog é inserida nos eventos:
 
-_log = /var/log/teste_
-_auditlog.var.log.teste_
+_/var/log/teste = auditlog.var.log.teste_
 
 2. O plugin ec2_metadata adiciona os campos instance-id e account-id na tag do evento atual
 
